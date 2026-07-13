@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Оценка риска БПЛА для дома</title>
+<title>РћС†РµРЅРєР° СЂРёСЃРєР° Р‘РџР›Рђ РґР»СЏ РґРѕРјР°</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,37 +34,37 @@
 <div id="app">
   <div id="map"></div>
   <div id="panel">
-    <h1>? Оценка риска прилёта БПЛА в здание</h1>
+    <h1>вљ  РћС†РµРЅРєР° СЂРёСЃРєР° РїСЂРёР»С‘С‚Р° Р‘РџР›Рђ РІ Р·РґР°РЅРёРµ</h1>
     <div class="disclaimer">
-      Это грубая эвристическая оценка по открытым данным (OSM, рельеф).
-      НЕ является прогнозом. При сигнале тревоги — следуйте официальным
-      инструкциям: отойти от окон, укрыться в помещении без остекления,
-      подвале, за капитальными стенами.
+      Р­С‚Рѕ РіСЂСѓР±Р°СЏ СЌРІСЂРёСЃС‚РёС‡РµСЃРєР°СЏ РѕС†РµРЅРєР° РїРѕ РѕС‚РєСЂС‹С‚С‹Рј РґР°РЅРЅС‹Рј (OSM, СЂРµР»СЊРµС„).
+      РќР• СЏРІР»СЏРµС‚СЃСЏ РїСЂРѕРіРЅРѕР·РѕРј. РџСЂРё СЃРёРіРЅР°Р»Рµ С‚СЂРµРІРѕРіРё вЂ” СЃР»РµРґСѓР№С‚Рµ РѕС„РёС†РёР°Р»СЊРЅС‹Рј
+      РёРЅСЃС‚СЂСѓРєС†РёСЏРј: РѕС‚РѕР№С‚Рё РѕС‚ РѕРєРѕРЅ, СѓРєСЂС‹С‚СЊСЃСЏ РІ РїРѕРјРµС‰РµРЅРёРё Р±РµР· РѕСЃС‚РµРєР»РµРЅРёСЏ,
+      РїРѕРґРІР°Р»Рµ, Р·Р° РєР°РїРёС‚Р°Р»СЊРЅС‹РјРё СЃС‚РµРЅР°РјРё.
     </div>
-    <div class="hint">1. Кликните на карте по своему дому.<br>2. Укажите параметры.<br>3. Нажмите «Рассчитать».</div>
+    <div class="hint">1. РљР»РёРєРЅРёС‚Рµ РЅР° РєР°СЂС‚Рµ РїРѕ СЃРІРѕРµРјСѓ РґРѕРјСѓ.<br>2. РЈРєР°Р¶РёС‚Рµ РїР°СЂР°РјРµС‚СЂС‹.<br>3. РќР°Р¶РјРёС‚Рµ В«Р Р°СЃСЃС‡РёС‚Р°С‚СЊВ».</div>
 
-    <label>Этажность здания (если OSM не знает)
+    <label>Р­С‚Р°Р¶РЅРѕСЃС‚СЊ Р·РґР°РЅРёСЏ (РµСЃР»Рё OSM РЅРµ Р·РЅР°РµС‚)
       <input type="number" id="floors" value="5" min="1" max="40">
     </label>
-    <label>Куда смотрит ваш фасад / окна
+    <label>РљСѓРґР° СЃРјРѕС‚СЂРёС‚ РІР°С€ С„Р°СЃР°Рґ / РѕРєРЅР°
       <select id="facade">
-        <option value="225" selected>Юго-запад</option>
-        <option value="180">Юг</option>
-        <option value="270">Запад</option>
-        <option value="135">Юго-восток</option>
-        <option value="315">Северо-запад</option>
-        <option value="90">Восток</option>
-        <option value="0">Север</option>
-        <option value="45">Северо-восток</option>
-        <option value="-1">Не знаю / со всех сторон</option>
+        <option value="225" selected>Р®РіРѕ-Р·Р°РїР°Рґ</option>
+        <option value="180">Р®Рі</option>
+        <option value="270">Р—Р°РїР°Рґ</option>
+        <option value="135">Р®РіРѕ-РІРѕСЃС‚РѕРє</option>
+        <option value="315">РЎРµРІРµСЂРѕ-Р·Р°РїР°Рґ</option>
+        <option value="90">Р’РѕСЃС‚РѕРє</option>
+        <option value="0">РЎРµРІРµСЂ</option>
+        <option value="45">РЎРµРІРµСЂРѕ-РІРѕСЃС‚РѕРє</option>
+        <option value="-1">РќРµ Р·РЅР°СЋ / СЃРѕ РІСЃРµС… СЃС‚РѕСЂРѕРЅ</option>
       </select>
     </label>
-    <label>Ваш этаж
+    <label>Р’Р°С€ СЌС‚Р°Р¶
       <input type="number" id="myFloor" value="3" min="1" max="40">
     </label>
 
-    <button id="calcBtn" disabled>Рассчитать риск</button>
-    <div class="status" id="status">Кликните по карте, чтобы выбрать дом.</div>
+    <button id="calcBtn" disabled>Р Р°СЃСЃС‡РёС‚Р°С‚СЊ СЂРёСЃРє</button>
+    <div class="status" id="status">РљР»РёРєРЅРёС‚Рµ РїРѕ РєР°СЂС‚Рµ, С‡С‚РѕР±С‹ РІС‹Р±СЂР°С‚СЊ РґРѕРј.</div>
     <canvas id="profileCanvas" width="360" height="90"></canvas>
     <div id="result"></div>
   </div>
@@ -72,13 +72,13 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-// ================== КАРТА ==================
-const map = L.map('map').setView([50.6, 36.6], 8); // Белгород по умолчанию
+// ================== РљРђР РўРђ ==================
+const map = L.map('map').setView([50.6, 36.6], 8); // Р‘РµР»РіРѕСЂРѕРґ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19, attribution: '© OpenStreetMap'
+  maxZoom: 19, attribution: 'В© OpenStreetMap'
 }).addTo(map);
 
-// Упрощённая линия госграницы (Брянская > Курская > Белгородская > Воронежская > Ростовская обл.)
+// РЈРїСЂРѕС‰С‘РЅРЅР°СЏ Р»РёРЅРёСЏ РіРѕСЃРіСЂР°РЅРёС†С‹ (Р‘СЂСЏРЅСЃРєР°СЏ в†’ РљСѓСЂСЃРєР°СЏ в†’ Р‘РµР»РіРѕСЂРѕРґСЃРєР°СЏ в†’ Р’РѕСЂРѕРЅРµР¶СЃРєР°СЏ в†’ Р РѕСЃС‚РѕРІСЃРєР°СЏ РѕР±Р».)
 const BORDER = [
   [52.35,31.60],[52.10,31.90],[52.05,32.40],[52.25,33.10],[52.35,33.80],
   [52.20,34.10],[51.95,34.15],[51.70,34.05],[51.55,34.25],[51.35,34.20],
@@ -89,20 +89,20 @@ const BORDER = [
   [48.85,39.80],[48.60,39.90],[48.30,39.85],[47.95,39.60],[47.60,38.90],[47.25,38.55]
 ];
 L.polyline(BORDER, {color:'#f55', weight:2, dashArray:'6 6', opacity:.7})
-  .addTo(map).bindTooltip('Госграница (упрощённо)');
+  .addTo(map).bindTooltip('Р“РѕСЃРіСЂР°РЅРёС†Р° (СѓРїСЂРѕС‰С‘РЅРЅРѕ)');
 
 let homeMarker = null, traceLine = null, hazardLayer = L.layerGroup().addTo(map), sectorLayer = null;
 
 map.on('click', e => {
   if (homeMarker) map.removeLayer(homeMarker);
-  homeMarker = L.marker(e.latlng).addTo(map).bindPopup('Ваш дом').openPopup();
+  homeMarker = L.marker(e.latlng).addTo(map).bindPopup('Р’Р°С€ РґРѕРј').openPopup();
   document.getElementById('calcBtn').disabled = false;
-  setStatus('Дом выбран. Нажмите «Рассчитать риск».');
+  setStatus('Р”РѕРј РІС‹Р±СЂР°РЅ. РќР°Р¶РјРёС‚Рµ В«Р Р°СЃСЃС‡РёС‚Р°С‚СЊ СЂРёСЃРєВ».');
 });
 
 function setStatus(t){ document.getElementById('status').textContent = t; }
 
-// ================== ГЕОМЕТРИЯ ==================
+// ================== Р“Р•РћРњР•РўР РРЇ ==================
 const R = 6371000;
 function dist(a, b){
   const dLat=(b[0]-a[0])*Math.PI/180, dLon=(b[1]-a[1])*Math.PI/180;
@@ -117,7 +117,7 @@ function bearing(a, b){
 }
 function nearestBorderPoint(p){
   let best = BORDER[0], bd = Infinity;
-  // проверяем и точки, и середины сегментов
+  // РїСЂРѕРІРµСЂСЏРµРј Рё С‚РѕС‡РєРё, Рё СЃРµСЂРµРґРёРЅС‹ СЃРµРіРјРµРЅС‚РѕРІ
   const pts = [];
   for(let i=0;i<BORDER.length;i++){
     pts.push(BORDER[i]);
@@ -128,9 +128,9 @@ function nearestBorderPoint(p){
 }
 function angDiff(a,b){ let d=Math.abs(a-b)%360; return d>180?360-d:d; }
 
-// ================== ДАННЫЕ ==================
+// ================== Р”РђРќРќР«Р• ==================
 async function fetchElevations(points){
-  // Open-Meteo elevation API, до 100 точек за запрос
+  // Open-Meteo elevation API, РґРѕ 100 С‚РѕС‡РµРє Р·Р° Р·Р°РїСЂРѕСЃ
   const lat = points.map(p=>p[0].toFixed(5)).join(',');
   const lon = points.map(p=>p[1].toFixed(5)).join(',');
   const r = await fetch(`https://api.open-meteo.com/v1/elevation?latitude=${lat}&longitude=${lon}`);
@@ -153,7 +153,7 @@ function buildingHeight(tags, fallbackFloors){
   return fallbackFloors*3;
 }
 
-// ================== РАСЧЁТ ==================
+// ================== Р РђРЎР§РЃРў ==================
 document.getElementById('calcBtn').addEventListener('click', calculate);
 
 async function calculate(){
@@ -170,17 +170,17 @@ async function calculate(){
     const myFloor = +document.getElementById('myFloor').value || 1;
     const facadeAz = +document.getElementById('facade').value;
 
-    // --- 1. Трассировка от границы ---
-    setStatus('Ищу ближайшую точку границы…');
+    // --- 1. РўСЂР°СЃСЃРёСЂРѕРІРєР° РѕС‚ РіСЂР°РЅРёС†С‹ ---
+    setStatus('РС‰Сѓ Р±Р»РёР¶Р°Р№С€СѓСЋ С‚РѕС‡РєСѓ РіСЂР°РЅРёС†С‹вЂ¦');
     const nb = nearestBorderPoint(home);
     const distKm = nb.d/1000;
-    const approachBearing = bearing(nb.point, home);          // куда летит
-    const bearingToBorder = (approachBearing+180)%360;        // откуда прилёт
+    const approachBearing = bearing(nb.point, home);          // РєСѓРґР° Р»РµС‚РёС‚
+    const bearingToBorder = (approachBearing+180)%360;        // РѕС‚РєСѓРґР° РїСЂРёР»С‘С‚
 
     traceLine = L.polyline([nb.point, home], {color:'#ff0', weight:2, opacity:.8})
-      .addTo(map).bindTooltip(`Трасса подлёта: ${distKm.toFixed(1)} км`);
+      .addTo(map).bindTooltip(`РўСЂР°СЃСЃР° РїРѕРґР»С‘С‚Р°: ${distKm.toFixed(1)} РєРј`);
 
-    // сектор подлёта ±45°
+    // СЃРµРєС‚РѕСЂ РїРѕРґР»С‘С‚Р° В±45В°
     const secPts = [home];
     for(let a=bearingToBorder-45; a<=bearingToBorder+45; a+=9){
       const rad=a*Math.PI/180, dm=400;
@@ -188,10 +188,10 @@ async function calculate(){
                    home[1]+ (dm*Math.sin(rad))/(111320*Math.cos(home[0]*Math.PI/180))]);
     }
     sectorLayer = L.polygon(secPts,{color:'#f80',weight:1,fillOpacity:.12})
-      .addTo(map).bindTooltip('Сектор вероятного подлёта');
+      .addTo(map).bindTooltip('РЎРµРєС‚РѕСЂ РІРµСЂРѕСЏС‚РЅРѕРіРѕ РїРѕРґР»С‘С‚Р°');
 
-    // --- 2. Профиль высот по трассе ---
-    setStatus('Загружаю профиль рельефа (Open-Meteo)…');
+    // --- 2. РџСЂРѕС„РёР»СЊ РІС‹СЃРѕС‚ РїРѕ С‚СЂР°СЃСЃРµ ---
+    setStatus('Р—Р°РіСЂСѓР¶Р°СЋ РїСЂРѕС„РёР»СЊ СЂРµР»СЊРµС„Р° (Open-Meteo)вЂ¦');
     const N = 60;
     const samples = [];
     for(let i=0;i<=N;i++){
@@ -201,8 +201,8 @@ async function calculate(){
     const elev = await fetchElevations(samples);
     const elevBorder = elev[0], elevHome = elev[N];
 
-    // маскирование рельефом: БПЛА огибает рельеф на ~80м AGL,
-    // считаем сколько раз местность "закрывает" прямую видимость на дом
+    // РјР°СЃРєРёСЂРѕРІР°РЅРёРµ СЂРµР»СЊРµС„РѕРј: Р‘РџР›Рђ РѕРіРёР±Р°РµС‚ СЂРµР»СЊРµС„ РЅР° ~80Рј AGL,
+    // СЃС‡РёС‚Р°РµРј СЃРєРѕР»СЊРєРѕ СЂР°Р· РјРµСЃС‚РЅРѕСЃС‚СЊ "Р·Р°РєСЂС‹РІР°РµС‚" РїСЂСЏРјСѓСЋ РІРёРґРёРјРѕСЃС‚СЊ РЅР° РґРѕРј
     let masked = 0;
     const houseH = floors*3;
     const targetAlt = elevHome + houseH;
@@ -213,15 +213,15 @@ async function calculate(){
     }
     const maskFrac = masked/(N-1); // 0..1
 
-    // положение дома относительно рельефа последних 5 км
+    // РїРѕР»РѕР¶РµРЅРёРµ РґРѕРјР° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ СЂРµР»СЊРµС„Р° РїРѕСЃР»РµРґРЅРёС… 5 РєРј
     const tail = elev.slice(Math.max(0, N-Math.round(5/(distKm/N))));
     const tailMean = tail.reduce((a,b)=>a+b,0)/tail.length;
-    const relElev = elevHome - tailMean; // >0 — дом на возвышенности
+    const relElev = elevHome - tailMean; // >0 вЂ” РґРѕРј РЅР° РІРѕР·РІС‹С€РµРЅРЅРѕСЃС‚Рё
 
     drawProfile(elev, elevBorder, elevHome, houseH);
 
-    // --- 3. Здания вокруг: экранирование соседями ---
-    setStatus('Загружаю здания вокруг (Overpass)…');
+    // --- 3. Р—РґР°РЅРёСЏ РІРѕРєСЂСѓРі: СЌРєСЂР°РЅРёСЂРѕРІР°РЅРёРµ СЃРѕСЃРµРґСЏРјРё ---
+    setStatus('Р—Р°РіСЂСѓР¶Р°СЋ Р·РґР°РЅРёСЏ РІРѕРєСЂСѓРі (Overpass)вЂ¦');
     const bQ = `[out:json][timeout:25];way["building"](around:250,${home[0]},${home[1]});out center tags;`;
     const buildings = await overpass(bQ);
 
@@ -233,7 +233,7 @@ async function calculate(){
     }
     const myH = buildingHeight(myBld && myBld.tags, floors);
 
-    // соседи в секторе подлёта, выше по линии полёта > экран
+    // СЃРѕСЃРµРґРё РІ СЃРµРєС‚РѕСЂРµ РїРѕРґР»С‘С‚Р°, РІС‹С€Рµ РїРѕ Р»РёРЅРёРё РїРѕР»С‘С‚Р° в†’ СЌРєСЂР°РЅ
     let shieldScore = 0, shieldCount = 0;
     for(const b of buildings){
       if(!b.center || b===myBld) continue;
@@ -241,9 +241,9 @@ async function calculate(){
       const d = dist(home,p);
       if(d<10 || d>220) continue;
       const brg = bearing(home,p);
-      if(angDiff(brg, bearingToBorder) > 50) continue; // не в секторе подлёта
+      if(angDiff(brg, bearingToBorder) > 50) continue; // РЅРµ РІ СЃРµРєС‚РѕСЂРµ РїРѕРґР»С‘С‚Р°
       const nh = buildingHeight(b.tags, 3);
-      const nBase = elevHome; // приближение: соседи на той же высоте
+      const nBase = elevHome; // РїСЂРёР±Р»РёР¶РµРЅРёРµ: СЃРѕСЃРµРґРё РЅР° С‚РѕР№ Р¶Рµ РІС‹СЃРѕС‚Рµ
       if(nBase + nh >= elevHome + myH - 3){
         shieldCount++;
         shieldScore += Math.min(1, (nh/myH)) * (1 - d/220);
@@ -251,8 +251,8 @@ async function calculate(){
     }
     const shieldFactor = Math.max(0.45, 1 - Math.min(0.55, shieldScore*0.18));
 
-    // --- 4. Опасные объекты рядом (доп. риск) ---
-    setStatus('Ищу опасные объекты рядом (Overpass)…');
+    // --- 4. РћРїР°СЃРЅС‹Рµ РѕР±СЉРµРєС‚С‹ СЂСЏРґРѕРј (РґРѕРї. СЂРёСЃРє) ---
+    setStatus('РС‰Сѓ РѕРїР°СЃРЅС‹Рµ РѕР±СЉРµРєС‚С‹ СЂСЏРґРѕРј (Overpass)вЂ¦');
     const hQ = `[out:json][timeout:25];(
       nwr["military"](around:5000,${home[0]},${home[1]});
       nwr["landuse"="military"](around:5000,${home[0]},${home[1]});
@@ -263,7 +263,7 @@ async function calculate(){
       nwr["man_made"~"storage_tank|fuel"](around:2500,${home[0]},${home[1]});
     );out center tags;`;
     let hazards = [];
-    try { hazards = await overpass(hQ); } catch(e){ setStatus('Overpass перегружен, опасные объекты пропущены'); }
+    try { hazards = await overpass(hQ); } catch(e){ setStatus('Overpass РїРµСЂРµРіСЂСѓР¶РµРЅ, РѕРїР°СЃРЅС‹Рµ РѕР±СЉРµРєС‚С‹ РїСЂРѕРїСѓС‰РµРЅС‹'); }
 
     let hazardBonus = 0, nearestHazard = null, nearestHazardD = Infinity;
     for(const h of hazards){
@@ -272,95 +272,95 @@ async function calculate(){
       const d = dist(home,[c.lat,c.lon]);
       const t = h.tags||{};
       let w = 0, name = t.name || '';
-      if(t.military || t.landuse==='military'){ w=25; name = name||'Военный объект'; }
-      else if(t.power==='plant'){ w=15; name=name||'Электростанция'; }
-      else if(t.power==='substation'){ w=10; name=name||'Подстанция'; }
-      else if(t.man_made==='works'){ w=12; name=name||'Завод'; }
-      else if((t.man_made||'').match(/storage_tank|fuel/)){ w=14; name=name||'Топливохранилище'; }
-      else if(t.landuse==='industrial'){ w=8; name=name||'Промзона'; }
+      if(t.military || t.landuse==='military'){ w=25; name = name||'Р’РѕРµРЅРЅС‹Р№ РѕР±СЉРµРєС‚'; }
+      else if(t.power==='plant'){ w=15; name=name||'Р­Р»РµРєС‚СЂРѕСЃС‚Р°РЅС†РёСЏ'; }
+      else if(t.power==='substation'){ w=10; name=name||'РџРѕРґСЃС‚Р°РЅС†РёСЏ'; }
+      else if(t.man_made==='works'){ w=12; name=name||'Р—Р°РІРѕРґ'; }
+      else if((t.man_made||'').match(/storage_tank|fuel/)){ w=14; name=name||'РўРѕРїР»РёРІРѕС…СЂР°РЅРёР»РёС‰Рµ'; }
+      else if(t.landuse==='industrial'){ w=8; name=name||'РџСЂРѕРјР·РѕРЅР°'; }
       if(!w) continue;
-      const decay = Math.exp(-d/1200); // затухание с расстоянием
+      const decay = Math.exp(-d/1200); // Р·Р°С‚СѓС…Р°РЅРёРµ СЃ СЂР°СЃСЃС‚РѕСЏРЅРёРµРј
       hazardBonus += w*decay;
       if(d<nearestHazardD){ nearestHazardD=d; nearestHazard={name, d, w}; }
       L.circle([c.lat,c.lon], {radius:Math.min(800, 200+w*20), color:'#f55', weight:1, fillOpacity:.08})
-        .addTo(hazardLayer).bindTooltip(`${name} — ${(d/1000).toFixed(2)} км`);
+        .addTo(hazardLayer).bindTooltip(`${name} вЂ” ${(d/1000).toFixed(2)} РєРј`);
     }
     hazardBonus = Math.min(30, hazardBonus);
 
-    // --- 5. Ориентация фасада ---
-    let facadeFactor = 1, facadeNote = 'не учтено';
+    // --- 5. РћСЂРёРµРЅС‚Р°С†РёСЏ С„Р°СЃР°РґР° ---
+    let facadeFactor = 1, facadeNote = 'РЅРµ СѓС‡С‚РµРЅРѕ';
     if(facadeAz >= 0){
       const diff = angDiff(facadeAz, bearingToBorder);
-      if(diff < 40){ facadeFactor = 1.25; facadeNote = 'фасад смотрит на подлёт (+25%)'; }
-      else if(diff < 80){ facadeFactor = 1.1; facadeNote = 'фасад под углом к подлёту (+10%)'; }
-      else { facadeFactor = 0.85; facadeNote = 'фасад отвёрнут от подлёта (?15%)'; }
+      if(diff < 40){ facadeFactor = 1.25; facadeNote = 'С„Р°СЃР°Рґ СЃРјРѕС‚СЂРёС‚ РЅР° РїРѕРґР»С‘С‚ (+25%)'; }
+      else if(diff < 80){ facadeFactor = 1.1; facadeNote = 'С„Р°СЃР°Рґ РїРѕРґ СѓРіР»РѕРј Рє РїРѕРґР»С‘С‚Сѓ (+10%)'; }
+      else { facadeFactor = 0.85; facadeNote = 'С„Р°СЃР°Рґ РѕС‚РІС‘СЂРЅСѓС‚ РѕС‚ РїРѕРґР»С‘С‚Р° (в€’15%)'; }
     }
 
-    // --- 6. Итоговая эвристика ---
-    const baseByDist = 60 * Math.exp(-distKm/70);                 // близость к границе
-    const terrainFactor = 1 - 0.5*maskFrac;                       // рельеф прикрывает
-    const relElevFactor = 1 + Math.max(-0.15, Math.min(0.2, relElev/100)); // дом на холме заметнее
-    const heightFactor = 1 + Math.min(0.25, (myH-15)/100);        // высокое здание — больше силуэт
-    const floorFactor = myFloor >= floors-1 ? 1.12 : (myFloor<=1 ? 0.9 : 1); // верхние этажи
+    // --- 6. РС‚РѕРіРѕРІР°СЏ СЌРІСЂРёСЃС‚РёРєР° ---
+    const baseByDist = 60 * Math.exp(-distKm/70);                 // Р±Р»РёР·РѕСЃС‚СЊ Рє РіСЂР°РЅРёС†Рµ
+    const terrainFactor = 1 - 0.5*maskFrac;                       // СЂРµР»СЊРµС„ РїСЂРёРєСЂС‹РІР°РµС‚
+    const relElevFactor = 1 + Math.max(-0.15, Math.min(0.2, relElev/100)); // РґРѕРј РЅР° С…РѕР»РјРµ Р·Р°РјРµС‚РЅРµРµ
+    const heightFactor = 1 + Math.min(0.25, (myH-15)/100);        // РІС‹СЃРѕРєРѕРµ Р·РґР°РЅРёРµ вЂ” Р±РѕР»СЊС€Рµ СЃРёР»СѓСЌС‚
+    const floorFactor = myFloor >= floors-1 ? 1.12 : (myFloor<=1 ? 0.9 : 1); // РІРµСЂС…РЅРёРµ СЌС‚Р°Р¶Рё
 
     let score = baseByDist * terrainFactor * relElevFactor * heightFactor * shieldFactor * facadeFactor * floorFactor
               + hazardBonus;
     score = Math.max(1, Math.min(99, Math.round(score)));
 
-    // --- Вывод ---
+    // --- Р’С‹РІРѕРґ ---
     const cls = score < 25 ? 'low' : score < 55 ? 'mid' : 'high';
-    const lbl = score < 25 ? 'Низкий' : score < 55 ? 'Повышенный' : 'Высокий';
+    const lbl = score < 25 ? 'РќРёР·РєРёР№' : score < 55 ? 'РџРѕРІС‹С€РµРЅРЅС‹Р№' : 'Р’С‹СЃРѕРєРёР№';
     const rows = [
-      ['Расстояние до границы', distKm.toFixed(1)+' км > база '+baseByDist.toFixed(0)],
-      ['Азимут подлёта', Math.round(bearingToBorder)+'° ('+azName(bearingToBorder)+')'],
-      ['Рельеф маскирует трассу', Math.round(maskFrac*100)+'% > ?'+terrainFactor.toFixed(2)],
-      ['Дом относительно местности', (relElev>=0?'+':'')+relElev.toFixed(0)+' м > ?'+relElevFactor.toFixed(2)],
-      ['Высота здания', myH.toFixed(0)+' м > ?'+heightFactor.toFixed(2)],
-      ['Экран соседних зданий', shieldCount+' шт в секторе > ?'+shieldFactor.toFixed(2)],
-      ['Ориентация фасада', facadeNote+' > ?'+facadeFactor.toFixed(2)],
-      ['Ваш этаж', myFloor+' > ?'+floorFactor.toFixed(2)],
-      ['Опасные объекты рядом', nearestHazard
-        ? `${nearestHazard.name}, ${(nearestHazard.d/1000).toFixed(2)} км > +${hazardBonus.toFixed(0)}`
-        : 'не найдено в OSM > +0'],
+      ['Р Р°СЃСЃС‚РѕСЏРЅРёРµ РґРѕ РіСЂР°РЅРёС†С‹', distKm.toFixed(1)+' РєРј в†’ Р±Р°Р·Р° '+baseByDist.toFixed(0)],
+      ['РђР·РёРјСѓС‚ РїРѕРґР»С‘С‚Р°', Math.round(bearingToBorder)+'В° ('+azName(bearingToBorder)+')'],
+      ['Р РµР»СЊРµС„ РјР°СЃРєРёСЂСѓРµС‚ С‚СЂР°СЃСЃСѓ', Math.round(maskFrac*100)+'% в†’ Г—'+terrainFactor.toFixed(2)],
+      ['Р”РѕРј РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РјРµСЃС‚РЅРѕСЃС‚Рё', (relElev>=0?'+':'')+relElev.toFixed(0)+' Рј в†’ Г—'+relElevFactor.toFixed(2)],
+      ['Р’С‹СЃРѕС‚Р° Р·РґР°РЅРёСЏ', myH.toFixed(0)+' Рј в†’ Г—'+heightFactor.toFixed(2)],
+      ['Р­РєСЂР°РЅ СЃРѕСЃРµРґРЅРёС… Р·РґР°РЅРёР№', shieldCount+' С€С‚ РІ СЃРµРєС‚РѕСЂРµ в†’ Г—'+shieldFactor.toFixed(2)],
+      ['РћСЂРёРµРЅС‚Р°С†РёСЏ С„Р°СЃР°РґР°', facadeNote+' в†’ Г—'+facadeFactor.toFixed(2)],
+      ['Р’Р°С€ СЌС‚Р°Р¶', myFloor+' в†’ Г—'+floorFactor.toFixed(2)],
+      ['РћРїР°СЃРЅС‹Рµ РѕР±СЉРµРєС‚С‹ СЂСЏРґРѕРј', nearestHazard
+        ? `${nearestHazard.name}, ${(nearestHazard.d/1000).toFixed(2)} РєРј в†’ +${hazardBonus.toFixed(0)}`
+        : 'РЅРµ РЅР°Р№РґРµРЅРѕ РІ OSM в†’ +0'],
     ];
     document.getElementById('result').innerHTML =
-      `<div class="score ${cls}">${score}/100<br><span style="font-size:14px">${lbl} относительный риск</span></div>`
+      `<div class="score ${cls}">${score}/100<br><span style="font-size:14px">${lbl} РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ СЂРёСЃРє</span></div>`
       + rows.map(r=>`<div class="factor"><span>${r[0]}</span><b>${r[1]}</b></div>`).join('')
-      + `<div class="disclaimer" style="margin-top:10px">Значение — относительная эвристика для сравнения зданий, не вероятность в процентах. Слушайте официальные оповещения.</div>`;
-    setStatus('Готово.');
+      + `<div class="disclaimer" style="margin-top:10px">Р—РЅР°С‡РµРЅРёРµ вЂ” РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅР°СЏ СЌРІСЂРёСЃС‚РёРєР° РґР»СЏ СЃСЂР°РІРЅРµРЅРёСЏ Р·РґР°РЅРёР№, РЅРµ РІРµСЂРѕСЏС‚РЅРѕСЃС‚СЊ РІ РїСЂРѕС†РµРЅС‚Р°С…. РЎР»СѓС€Р°Р№С‚Рµ РѕС„РёС†РёР°Р»СЊРЅС‹Рµ РѕРїРѕРІРµС‰РµРЅРёСЏ.</div>`;
+    setStatus('Р“РѕС‚РѕРІРѕ.');
   } catch(err){
-    setStatus('Ошибка: '+err.message+'. Попробуйте ещё раз (API мог быть перегружен).');
+    setStatus('РћС€РёР±РєР°: '+err.message+'. РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰С‘ СЂР°Р· (API РјРѕРі Р±С‹С‚СЊ РїРµСЂРµРіСЂСѓР¶РµРЅ).');
   } finally {
     btn.disabled = false;
   }
 }
 
 function azName(a){
-  const names=['С','СВ','В','ЮВ','Ю','ЮЗ','З','СЗ'];
+  const names=['РЎ','РЎР’','Р’','Р®Р’','Р®','Р®Р—','Р—','РЎР—'];
   return names[Math.round(a/45)%8];
 }
 
-// профиль высот на canvas
+// РїСЂРѕС„РёР»СЊ РІС‹СЃРѕС‚ РЅР° canvas
 function drawProfile(elev, e0, e1, houseH){
   const c = document.getElementById('profileCanvas'), ctx = c.getContext('2d');
   ctx.clearRect(0,0,c.width,c.height);
   const min = Math.min(...elev)-10, max = Math.max(...elev, e1+houseH)+10;
   const y = v => c.height - 8 - (v-min)/(max-min)*(c.height-16);
   const x = i => 4 + i/(elev.length-1)*(c.width-8);
-  // рельеф
+  // СЂРµР»СЊРµС„
   ctx.beginPath(); ctx.moveTo(x(0), c.height);
   elev.forEach((v,i)=>ctx.lineTo(x(i), y(v)));
   ctx.lineTo(x(elev.length-1), c.height); ctx.closePath();
   ctx.fillStyle='#2a3a2a'; ctx.fill();
-  // линия подлёта
+  // Р»РёРЅРёСЏ РїРѕРґР»С‘С‚Р°
   ctx.beginPath(); ctx.moveTo(x(0), y(e0+80)); ctx.lineTo(x(elev.length-1), y(e1+houseH));
   ctx.strokeStyle='#ff5'; ctx.setLineDash([4,3]); ctx.stroke(); ctx.setLineDash([]);
-  // дом
+  // РґРѕРј
   ctx.fillStyle='#f80';
   ctx.fillRect(x(elev.length-1)-4, y(e1+houseH), 4, y(e1)-y(e1+houseH));
   ctx.fillStyle='#888'; ctx.font='10px sans-serif';
-  ctx.fillText('граница', 6, 12);
-  ctx.fillText('дом', c.width-30, 12);
+  ctx.fillText('РіСЂР°РЅРёС†Р°', 6, 12);
+  ctx.fillText('РґРѕРј', c.width-30, 12);
 }
 </script>
 </body>
